@@ -21,6 +21,15 @@ module.exports = class extends Generator {
         }])
         .then((answers) => {
             this.log('app name:', answers.name);
+            this.props = answers;
         });
+    }
+
+    writing() {
+        this.fs.copyTpl(
+            this.templatePath('index.html'),
+            this.destinationPath(this.props.name+'/index.html'),
+            { title: this.props.name }
+        );
     }
 };
