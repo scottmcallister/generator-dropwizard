@@ -1,0 +1,17 @@
+{
+  "name": "generator-dropwizard",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "author": "Scott McAllister",
+  "license": "ISC",
+  "dependencies": {
+    "yeoman-generator": "^1.1.0"
+  }
+}
