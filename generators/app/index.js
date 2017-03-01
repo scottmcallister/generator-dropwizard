@@ -4,19 +4,23 @@ var Generator = require('yeoman-generator');
 
 module.exports = class extends Generator {
     // The name `constructor` is important here
-  constructor(args, opts) {
-    // Calling the super constructor is important so our generator is correctly set up
-    super(args, opts);
+    constructor(args, opts) {
+        // Calling the super constructor is important so our generator is correctly set up
+        super(args, opts);
 
-    // Next, add your custom code
-    this.option('babel'); // This method adds support for a `--babel` flag
-  }
+        // Next, add your custom code
+        this.argument('appname', { type: String, required: false });
+    }
 
-  method1() {
-    this.log('method 1 just ran');
-  }
-
-  method2() {
-    this.log('method 2 just ran');
-  }
+    prompting() {
+        return this.prompt([{
+            type: 'input',
+            name: 'name',
+            message: 'Your project name',
+            default: (this.options.appname ? this.options.appname : this.appname)
+        }])
+        .then((answers) => {
+            this.log('app name:', answers.name);
+        });
+    }
 };
